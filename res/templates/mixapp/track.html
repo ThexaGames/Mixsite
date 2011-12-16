@@ -1,0 +1,13 @@
+{% extends "mixapp/base.html" %}
+
+{% block title %}Track page{% endblock %}
+
+{% block content %}
+Title: {{ track.title }} <br/>
+Artist: {{ track.artistName }} <br/>
+
+<audio controls="controls" src="{{ MEDIA_URL }}{{ track.fileUrl }}" preload="auto">
+	Your browser does not support the audio tag.
+</audio>
+
+{% endblock %}

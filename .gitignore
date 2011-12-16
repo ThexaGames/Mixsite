@@ -1,0 +1,4 @@
+# ignore compiled files
+*.pyc
+# ignore any Windows shortcuts
+*.lnk

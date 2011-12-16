@@ -1,0 +1,21 @@
+<td>
+	<script type="text/javascript" src="{{ STATIC_URL }}scripts/login.js"></script>
+	
+	<div id="loginDiv" style="display: block;">
+		<form id="loginForm" onsubmit="mixapp.login.submitLoginForm()" action="javascript:">
+			{% csrf_token %}
+			<input name="username" type="text" placeholder="Username"/> <br/>
+			<input name="password" type="password" placeholder="Password"/> <br/>
+			<input type="submit" value="Login"/>
+		</form>
+	</div>
+	
+	<div id="loggingInDiv" style="display: none;">
+		Logging in...
+	</div>
+	
+	<div id="profileDiv" style="display: none;">
+		Profile div
+	</div>
+	
+</td>

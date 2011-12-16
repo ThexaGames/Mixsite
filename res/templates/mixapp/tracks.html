@@ -1,0 +1,10 @@
+{% extends "mixapp/base.html" %}
+
+{% block title %}Tracks page{% endblock %}
+
+{% block content %}
+{% for track in tracks %}
+    <a href="{% url mixapp.views.trackDetail trackId=track.id %}">{{ track.title }}</a>
+    <br/>
+{% endfor %}
+{% endblock %}
