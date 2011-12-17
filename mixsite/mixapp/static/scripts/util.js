@@ -4,17 +4,16 @@
 	
 	
 	// onload function
-	mixapp.util.onloadFunctions = new Array();
+	var onloadFunctions = new Array();
 	mixapp.util.bodyLoaded = function() {
 		// run any functions that have registered to be run at load
-		var functions = mixapp.util.onloadFunctions;
-		for(var i = 0; i < functions.length; i++) {
-			functions[i].call();
+		for(var i = 0; i < onloadFunctions.length; i++) {
+			onloadFunctions[i].call();
 		}
 	}
 	
 	mixapp.util.registerOnloadFunction = function(onloadFunction) {
-		mixapp.util.onloadFunctions.push(onloadFunction);
+		onloadFunctions.push(onloadFunction);
 	}
 	
 	
