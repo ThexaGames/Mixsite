@@ -58,10 +58,11 @@
 				if(http.status == 200) {
 					// login was a success
 					loginSuccess();
-				}
-				if(http.status == 403) {
+				} else if(http.status == 403) {
 					// login was denied
 					loginFailed();
+				} else {
+					alert("A problem occured processing the login request.")
 				}
 			}
 		}, params);
