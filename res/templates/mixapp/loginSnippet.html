@@ -1,11 +1,13 @@
 <td>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/login.js"></script>
 	
-	<div id="loginDiv" style="display: block;">
+	<div id="loginDiv" style="display: {% if user.is_active %}none;{% else %}block;{% endif %}">
 		<form id="loginForm" onsubmit="mixapp.login.submitLoginForm()" action="javascript:">
+			<h2>Login</h2>
 			{% csrf_token %}
 			<input name="username" type="text" placeholder="Username"/> <br/>
 			<input name="password" type="password" placeholder="Password"/> <br/>
+			<div id="loginErrorDiv" class="errorBox" style="display: none;">Login failed</div>
 			<input type="submit" value="Login"/>
 		</form>
 	</div>
@@ -14,8 +16,7 @@
 		Logging in...
 	</div>
 	
-	<div id="profileDiv" style="display: none;">
+	<div id="profileDiv" style="display: {% if user.is_active %}block;{% else %}none;{% endif %}">
 		Profile div
 	</div>
-	
 </td>

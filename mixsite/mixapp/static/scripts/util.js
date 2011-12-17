@@ -30,6 +30,8 @@
 		http.onreadystatechange = onReadyStateChange;
 		
 		http.send(params);
+		
+		return http;
 	}
 	
 }(window.mixapp = window.mixapp || {}));
