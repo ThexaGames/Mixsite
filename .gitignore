@@ -2,3 +2,10 @@
 *.pyc
 # ignore any Windows shortcuts
 *.lnk
+# ignore databases
+*.db
+# ignore media files
+*.mp3
+*.wav
+*.ogg
+*.wma
