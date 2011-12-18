@@ -30,13 +30,22 @@
 	}
 	
 	function loginFailed() {
-		// send an alert about the change
-		loginStateChanged(false);
 		// display the login form again and show the error message
 		//TODO transition animations
 		document.getElementById("loggingInDiv").style.display = "none";
 		document.getElementById("loginDiv").style.display = "block";
 		document.getElementById("loginErrorDiv").style.display = "block";
+	}
+	
+	function logoutComplete() {
+		// send an alert about the change
+		loginStateChanged(false);
+		// display the login form and hide the error message
+		//TODO transition animations
+		document.getElementById("loggingInDiv").style.display = "none";
+		document.getElementById("profileDiv").style.display = "none";
+		document.getElementById("loginErrorDiv").style.display = "none";
+		document.getElementById("loginDiv").style.display = "block";
 	}
 	
 	mixapp.login.submitLoginForm = function() {
@@ -45,6 +54,9 @@
 		var username = form.elements["username"].value;
 		var password = form.elements["password"].value;
 		var csrf = form.elements["csrfmiddlewaretoken"].value;
+		
+		// clear the password box
+		form.elements["password"].value = "";
 		
 		// hide the form and display the loading indicator
 		//TODO transition animations
@@ -66,6 +78,16 @@
 				}
 			}
 		}, params);
+	}
+	
+	mixapp.login.logout = function() {
+		// send a logout request
+		var http = mixapp.util.getAjax("/api/logout", function() {
+			if(http.readyState == 4 && http.status == 200) {
+				// update the ui to show a logout
+				logoutComplete();
+			}
+		});
 	}
 	
 }(window.mixapp = window.mixapp || {}));

@@ -33,4 +33,14 @@
 		return http;
 	}
 	
+	mixapp.util.getAjax = function(url, onReadyStateChange) {
+		var http = new XMLHttpRequest();
+		http.open("GET", url, true);
+		http.onreadystatechange = onReadyStateChange;
+		
+		http.send();
+		
+		return http;
+	}
+	
 }(window.mixapp = window.mixapp || {}));

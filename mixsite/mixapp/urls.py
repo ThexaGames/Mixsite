@@ -18,5 +18,6 @@ urlpatterns = patterns('mixapp.views',
     
     # api urls
     url(r'^api/authenticate', 'authenticate'),
+    url(r'^api/logout', 'logout'),
     url(r'^api/editTrack', 'editTrack'),
 )

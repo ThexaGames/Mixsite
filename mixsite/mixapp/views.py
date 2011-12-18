@@ -65,6 +65,10 @@ def authenticate(request):
     auth.login(request, user)
     return HttpResponse('Login succeeded')
 
+def logout(request):
+    # logout the current user
+    auth.logout(request)
+    return HttpResponse('User logged out')
 
 def editTrack(request):
     # check if post values have not been provided
