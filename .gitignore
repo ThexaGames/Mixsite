@@ -9,3 +9,5 @@
 *.wav
 *.ogg
 *.wma
+# ignore fabfiles
+fabfile.py
