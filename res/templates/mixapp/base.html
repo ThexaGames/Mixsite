@@ -13,7 +13,7 @@
 		<h1>
 			<a href="{% url mixapp.views.index %}">Mix Site (logo)<a/>
 		</h1>
-		<nav id="mainMenu">
+		<nav>
 			<ul>
 				<li><a href="{% url mixapp.views.tracks %}">Tracks</a></li>
 				<li><a href="{% url mixapp.views.users %}">Users</a></li>
@@ -45,5 +45,8 @@
     	</table>
         {% block content %}{% endblock %}
     </div>
+    <footer>
+    	Copyright etc.
+    </footer>
 </body>
 </html>
