@@ -13,3 +13,4 @@ class Track(models.Model):
 
 class Profile(models.Model):
     user = models.ForeignKey(User)
+    largeAvatar = models.FileField(upload_to='largeAvatars', blank=True, null=True)

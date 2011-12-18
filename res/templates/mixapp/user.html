@@ -1,0 +1,11 @@
+{% extends "mixapp/base.html" %}
+
+{% block title %}{{ user.username }}'s Profile{% endblock %}
+
+{% block cell1 %}
+<td>
+	<img
+		src="{% if profile.largeAvatar %}{{ MEDIA_URL }}{{ profile.largeAvatar }}{% else %}{{ STATIC_URL }}images/defaultLargeAvatar.png{% endif %}"
+		style="width: 100%; height: 100%"/>
+</td>
+{% endblock %}

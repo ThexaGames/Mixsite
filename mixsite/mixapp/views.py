@@ -1,8 +1,9 @@
 from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseBadRequest
 from django.template import RequestContext, loader
-from mixsite.mixapp.models import Track
+from mixsite.mixapp.models import Track, Profile
 from mixsite import settings
 from django.contrib import auth
+from django.contrib.auth.models import User
 
 # Views created here
 def index(request):
@@ -41,6 +42,22 @@ def trackDetail(request, trackId):
 def users(request):
     pass
 
+def userDetail(request, userId):
+    # see if we can find this user in the database
+    try:
+        user = User.objects.get(pk=userId)
+        profile = Profile.objects.get(user=user)
+    except User.DoesNotExist:
+        raise Http404
+    except Profile.DoesNotExist:
+        raise Http404
+    
+    # create the page
+    template = loader.get_template('mixapp/user.html')
+    context = RequestContext(request, {
+                                       'user': user,
+                                       'profile': profile})
+    return HttpResponse(template.render(context))
 
 # api views
 def authenticate(request):
