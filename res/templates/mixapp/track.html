@@ -1,13 +1,61 @@
 {% extends "mixapp/base.html" %}
 
-{% block title %}Track page{% endblock %}
+{% block title %}{{ track.title }}{% endblock %}
+
+{% block cell1 %}
+<!-- album art block -->
+<td>Album art here</td>
+{% endblock %}
+
+{% block cell2 %}
+<!-- player block -->
+<td colspan="2">
+	<audio controls="controls" src="{{ MEDIA_URL }}{{ track.fileUrl }}" preload="auto">
+	Your browser does not support the audio tag.
+	</audio>
+</td>
+{% endblock %}
+
+{% block cell3 %}
+<!-- empty as overridden by player block -->
+{% endblock %}
+
+{% block cell5 %}
+<!-- artist avatar -->
+<td>Artist avatar here</td>
+{% endblock %}
+
+{% block cell6 %}
+<!-- track info here -->
+<td colspan="2">
+	Track info here
+</td>
+{% endblock %}
+
+{% block cell7 %}
+<!-- empty as overridden by track info block -->
+{% endblock %}
+
+{% comment %}
+{% block cell8 %}
+{% endblock %}
+
+{% block cell9 %}
+{% endblock %}
+
+{% block cell10 %}
+{% endblock %}
+
+{% block cell11 %}
+{% endblock %}
+
+{% block cell12 %}
+{% endblock %}
+{% endcomment %}
+
 
 {% block content %}
 Title: {{ track.title }} <br/>
 Artist: {{ track.artistName }} <br/>
-
-<audio controls="controls" src="{{ MEDIA_URL }}{{ track.fileUrl }}" preload="auto">
-	Your browser does not support the audio tag.
-</audio>
 
 {% endblock %}
