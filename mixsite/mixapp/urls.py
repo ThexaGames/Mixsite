@@ -15,6 +15,7 @@ urlpatterns = patterns('mixapp.views',
     url(r'^tracks', 'tracks'),
     url(r'^track/(?P<trackId>\d+)', 'trackDetail'),
     url(r'^users', 'users'),
+    url(r'^user/(?P<userId>\d+)', 'userDetail'),
     
     # api urls
     url(r'^api/authenticate', 'authenticate'),
