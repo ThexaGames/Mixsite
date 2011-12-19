@@ -1,13 +1,79 @@
 {% extends "mixapp/base.html" %}
 
-{% block title %}Track page{% endblock %}
+{% block title %}{{ track.title }}{% endblock %}
 
-{% block content %}
-Title: {{ track.title }} <br/>
-Artist: {{ track.artistName }} <br/>
+{% block cell1 %}
+<!-- album art block -->
+<td>Album art here</td>
+{% endblock %}
 
-<audio controls="controls" src="{{ MEDIA_URL }}{{ track.fileUrl }}" preload="auto">
+{% block cell2 %}
+<!-- player block -->
+<td colspan="2">
+	<audio controls="controls" src="{{ MEDIA_URL }}{{ track.fileUrl }}" preload="auto">
 	Your browser does not support the audio tag.
-</audio>
+	</audio>
+</td>
+{% endblock %}
 
+{% block cell3 %}
+<!-- empty as overridden by player block -->
+{% endblock %}
+
+{% block cell5 %}
+<!-- artist avatar + hover over profile -->
+<td class="imageCell" style="background-image: url('{% if profile.largeAvatar %}{{ MEDIA_URL }}{{ profile.largeAvatar }}{% else %}{{ STATIC_URL }}images/defaultLargeAvatar.png{% endif %}');">
+	<!-- <img 
+		src="{% if profile.largeAvatar %}{{ MEDIA_URL }}{{ profile.largeAvatar }}{% else %}{{ STATIC_URL }}images/defaultLargeAvatar.png{% endif %}" 
+		style="width: 100%; height: 100%"/> -->
+	<h4>{{ track.artistName }}</h4>
+</td>
+{% endblock %}
+
+{% block cell6 %}
+<!-- track info block -->
+<td colspan="2" class="longTextCell" id="trackInfo">
+	<h2>{{ track.title }}</h2>
+	<h6>{% if track.album %}{{ track.album }} - {% endif %}{{ track.artistName }}</h6>
+	<p>Track "biography" goes here</p>
+</td>
+{% endblock %}
+
+{% block cell7 %}
+<!-- empty as overridden by track info block -->
+{% endblock %}
+
+{% block cell8 %}
+<!-- parent track block -->
+<td>
+	Direct parent of the track here
+</td>
+{% endblock %}
+
+{% block cell9 %}
+<!-- inspiration track or related track -->
+<td>
+	Inspiration track or related track
+</td>
+{% endblock %}
+
+{% block cell10 %}
+<!-- inspiration track or related track -->
+<td>
+	Inspiration track or related track
+</td>
+{% endblock %}
+
+{% block cell11 %}
+<!-- inspiration track or related track -->
+<td>
+	Inspiration track or related track
+</td>
+{% endblock %}
+
+{% block cell12 %}
+<!-- inspiration track or related track -->
+<td>
+	Inspiration track or related track
+</td>
 {% endblock %}

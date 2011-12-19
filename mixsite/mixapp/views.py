@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseBadRequest
 from django.template import RequestContext, loader
-from mixsite.mixapp.models import Track
+from mixsite.mixapp.models import Track, Profile
 from mixsite import settings
 from django.contrib import auth
 
@@ -30,10 +30,19 @@ def trackDetail(request, trackId):
     except Track.DoesNotExist:
         raise Http404
     
+    # try and find the profile for the track
+    profile = None
+    try:
+        profile = Profile.objects.get(user=track.artistUser)
+    except Profile.DoesNotExist:
+        pass # this exception doesn't really matter
+    
     # create the page
     template = loader.get_template('mixapp/track.html')
     context = RequestContext(request, {
                        'track': track,
+                       'user': track.artistUser,
+                       'profile': profile,
                        })
     return HttpResponse(template.render(context))
 
