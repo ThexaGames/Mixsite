@@ -22,15 +22,20 @@
 
 {% block cell5 %}
 <!-- artist avatar + hover over profile -->
-<td>
-	Artist avatar and profile here
+<td class="imageCell" style="background-image: url('{% if profile.largeAvatar %}{{ MEDIA_URL }}{{ profile.largeAvatar }}{% else %}{{ STATIC_URL }}images/defaultLargeAvatar.png{% endif %}');">
+	<!-- <img 
+		src="{% if profile.largeAvatar %}{{ MEDIA_URL }}{{ profile.largeAvatar }}{% else %}{{ STATIC_URL }}images/defaultLargeAvatar.png{% endif %}" 
+		style="width: 100%; height: 100%"/> -->
+	<h4>{{ track.artistName }}</h4>
 </td>
 {% endblock %}
 
 {% block cell6 %}
 <!-- track info block -->
-<td colspan="2">
-	Track info here
+<td colspan="2" class="longTextCell" id="trackInfo">
+	<h2>{{ track.title }}</h2>
+	<h6>{% if track.album %}{{ track.album }} - {% endif %}{{ track.artistName }}</h6>
+	<p>Track "biography" goes here</p>
 </td>
 {% endblock %}
 
@@ -71,11 +76,4 @@
 <td>
 	Inspiration track or related track
 </td>
-{% endblock %}
-
-
-{% block content %}
-Title: {{ track.title }} <br/>
-Artist: {{ track.artistName }} <br/>
-
 {% endblock %}
