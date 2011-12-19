@@ -12,6 +12,9 @@
 		// set the size of the table cells
 		var table = document.getElementById("gridTable");
 		findCellsAndSetSide(table, maxSide);
+		
+		// set the size of the page to match the size of the grid
+		document.getElementById("page").style.width = maxSide * 4 + "px";
 	}
 	mixapp.util.registerOnloadFunction(setTableCellSize); // call this function on load
 	

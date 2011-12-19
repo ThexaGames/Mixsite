@@ -10,6 +10,7 @@ class Track(models.Model):
     parentTrack = models.ForeignKey('Track', blank=True, null=True)
     length = models.IntegerField('Length seconds')
     fileUrl = models.FileField(upload_to='tracks')
+    largeAlbumArt = models.FileField(upload_to='largeAlbumArt', blank=True, null=True)
 
 class Profile(models.Model):
     user = models.ForeignKey(User)
