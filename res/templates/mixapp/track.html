@@ -11,7 +11,7 @@
 
 {% block cell2 %}
 <!-- player block -->
-<td colspan="2">
+<td colspan="2" id="player">
 	<audio controls="controls" src="{{ MEDIA_URL }}{{ track.fileUrl }}" preload="auto">
 	Your browser does not support the audio tag.
 	</audio>
@@ -44,35 +44,35 @@
 
 {% block cell8 %}
 <!-- parent track block -->
-<td>
+<td  class="imageCell">
 	Direct parent of the track here
 </td>
 {% endblock %}
 
 {% block cell9 %}
 <!-- inspiration track or related track -->
-<td>
+<td  class="imageCell">
 	Inspiration track or related track
 </td>
 {% endblock %}
 
 {% block cell10 %}
 <!-- inspiration track or related track -->
-<td>
+<td class="imageCell">
 	Inspiration track or related track
 </td>
 {% endblock %}
 
 {% block cell11 %}
 <!-- inspiration track or related track -->
-<td>
+<td class="imageCell">
 	Inspiration track or related track
 </td>
 {% endblock %}
 
 {% block cell12 %}
 <!-- inspiration track or related track -->
-<td>
+<td class="imageCell">
 	Inspiration track or related track
 </td>
 {% endblock %}

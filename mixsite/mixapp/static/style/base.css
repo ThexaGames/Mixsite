@@ -1,8 +1,8 @@
 @CHARSET "ISO-8859-1";
 
 body {
-	color: #1a1a1a;
-	background-color: #cccccc;
+	color: #3B3E40 /*color4*/;
+	background-color: #EDF8FF /*color3*/;
 	
 	/* fonts */
 	font-family: Arial, Helvetica, sans-serif;
@@ -31,7 +31,7 @@ header {
 nav {
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
-	background-color: #1a1a1a;
+	background-color: #3B3E40 /*color4*/;
 }
 
 nav ul {
@@ -48,7 +48,7 @@ nav li {
 }
 
 nav a {
-	color: #cccccc;
+	color: #EDF8FF /*color3*/;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -57,17 +57,22 @@ nav a {
 /* footer */
 footer {
 	padding: 1em;
-	background-color: #1a1a1a;
+	background-color: #3B3E40 /*color4*/;
+	/*background-image: linear-gradient(bottom, rgb(26,26,26) 20%, rgb(41,41,41) 66%);
+	background-image: -o-linear-gradient(bottom, rgb(26,26,26) 20%, rgb(41,41,41) 66%);
+	background-image: -moz-linear-gradient(bottom, rgb(26,26,26) 20%, rgb(41,41,41) 66%);
+	background-image: -webkit-linear-gradient(bottom, rgb(26,26,26) 20%, rgb(41,41,41) 66%);
+	background-image: -ms-linear-gradient(bottom, rgb(26,26,26) 20%, rgb(41,41,41) 66%);*/
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	
 	text-align: centre;
-	color: #cccccc;
+	color: #EDF8FF /*color3*/;
 }
 
 /* grid styling */
 #gridTable {
-	background-color: #1a1a1a;
+	background-color: #3B3E40 /*color4*/;
 }
 
 #gridTable td {
@@ -75,7 +80,7 @@ footer {
 	border-color: black;
 	border-width: 5px;
 	
-	background-color: #67237f;
+	background-color: #EDF8FF /*color3*/;
 	/* make sure images render correctly */
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
