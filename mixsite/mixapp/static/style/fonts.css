@@ -1,0 +1,7 @@
+@CHARSET "ISO-8859-1";
+@font-face {
+	font-family: 'Quantico';
+	font-style: normal;
+	font-weight: 700;
+	src: url('/static/fonts/Quantico.woff');
+}
