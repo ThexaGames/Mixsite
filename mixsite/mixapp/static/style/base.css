@@ -4,7 +4,7 @@ body {
 	color: black;
 	background-color: blue;
 	
-	/* fonts */
+	/* font */
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -76,14 +76,42 @@ footer {
 }
 
 #gridTable td {
+	position: relative; /* allow precise positioning of contents */
+	
 	border-style: none;
 	border-color: black;
 	border-width: 5px;
 	
 	background-color: blue;
+	
+	padding: 0.5em;
+}
+
+#gridTable td.imageCell {
 	/* make sure images render correctly */
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+}
+
+#gridTable td .textContainer {
+	/* float the text in the corner */
+	text-align: left;
+	position: absolute;
+	bottom: 0.5em; /* same as padding in the cells */
 	
-	padding: 0.5em;
+	padding-left: 0.1em;
+	padding-right: 0.1em;
+}
+
+#gridTable td .textContainer h2, h3, h4, h5, h6 {
+	/* put text on a light background */
+	background: blue;
+	display: table; /* hack to make the background shrink to the size of the text */
+}
+
+#gridTable td h2, h3, h4, h5, h6 {
+	font-family: Quantico;
+	font-weight: bold;
+	margin: 0px; /* prevent gaps between lines */
+	padding: 0px;
 }

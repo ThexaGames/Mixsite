@@ -5,7 +5,10 @@
 {% block cell1 %}
 <!-- album art block -->
 <td class="imageCell" style="background-image: url('{% if track.largeAlbumArt %}{{ MEDIA_URL }}{{ track.largeAlbumArt }}{% else %}{{ STATIC_URL }}images/defaultLargeAvatar.png{% endif %}');">
-	
+	<div class="textContainer">
+		<h3>TRACK</h3>
+		<h2>{{ track.title }}</h2>
+	</div>
 </td>
 {% endblock %}
 
@@ -25,7 +28,10 @@
 {% block cell5 %}
 <!-- artist avatar + hover over profile -->
 <td class="imageCell" style="background-image: url('{% if profile.largeAvatar %}{{ MEDIA_URL }}{{ profile.largeAvatar }}{% else %}{{ STATIC_URL }}images/defaultLargeAvatar.png{% endif %}');">
-	<h4>{{ track.artistName }}</h4>
+	<div class="textContainer">
+		<h3>ARTIST</h3>
+		<h2>{{ track.artistName }}</h2>
+	</div>
 </td>
 {% endblock %}
 
