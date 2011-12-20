@@ -73,6 +73,9 @@ footer {
 /* grid styling */
 #gridTable {
 	background-color: black;
+	table-layout: fixed;
+	display: table;
+	width: 100%;
 }
 
 #gridTable td {
@@ -85,6 +88,8 @@ footer {
 	background-color: blue;
 	
 	padding: 0.5em;
+	
+	overflow: hidden;
 }
 
 #gridTable td.imageCell {
@@ -98,6 +103,7 @@ footer {
 	text-align: left;
 	position: absolute;
 	bottom: 0.5em; /* same as padding in the cells */
+	left: 0.5em;
 	
 	padding-left: 0.1em;
 	padding-right: 0.1em;

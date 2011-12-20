@@ -15,14 +15,16 @@
 		
 		// set the size of the page to match the size of the grid
 		document.getElementById("page").style.width = maxSide * 4 + "px";
+		document.getElementById("gridTable").style.width = maxSide * 4 + "px";
+		document.getElementById("gridTable").style.height = maxSide * 3 + "px";
 	}
 	mixapp.util.registerOnloadFunction(setTableCellSize); // call this function on load
 	
 	function findCellsAndSetSide(node, side) {
 		// check if this node is a cell
 		if(node.nodeName == "TD") {
-			// set the size
-			node.style.width = side + "px";
+			//TODO: take into account possible row spans
+			// set the height
 			node.style.height = side + "px";
 			return; // exit here
 		}
