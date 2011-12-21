@@ -4,6 +4,7 @@ from mixsite.mixapp.models import Track, Profile
 from mixsite import settings
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.core import serializers
 
 # Views created here
 def index(request):
@@ -87,9 +88,9 @@ def authenticate(request):
         # respond with a 401
         return HttpResponseForbidden()
     
-    # at this point the login must have succeeded so login and return no error
+    # at this point the login must have succeeded so login and return the user profile json
     auth.login(request, user)
-    return HttpResponse('Login succeeded')
+    return HttpResponse(serializers.serialize("json", [user,]))
 
 def logout(request):
     # logout the current user

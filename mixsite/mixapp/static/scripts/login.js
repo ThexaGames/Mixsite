@@ -10,18 +10,17 @@
 		loginStateChangeFunctions.push(stateChangeFunction);
 	}
 	
-	function loginStateChanged(state) {
+	function loginStateChanged(state, user) {
 		// loop through and call all the registered functions
 		for(var i = 0; i < loginStateChangeFunctions.length; i++) {
-			loginStateChangeFunctions[i].call(state);
+			loginStateChangeFunctions[i](state, user);
 		}
 	}
 	
 	
-	
-	function loginSuccess() {
+	function loginSuccess(user) {
 		// send an alert about the change
-		loginStateChanged(true);
+		loginStateChanged(true, user);
 		// hide the login form and show the profile div
 		//TODO transition animations
 		document.getElementById("loggingInDiv").style.display = "none";
@@ -39,7 +38,7 @@
 	
 	function logoutComplete() {
 		// send an alert about the change
-		loginStateChanged(false);
+		loginStateChanged(false, undefined);
 		// display the login form and hide the error message
 		//TODO transition animations
 		document.getElementById("loggingInDiv").style.display = "none";
@@ -69,7 +68,8 @@
 			if(http.readyState == 4) {
 				if(http.status == 200) {
 					// login was a success
-					loginSuccess();
+					var user = JSON.parse(http.responseText)[0].fields;
+					loginSuccess(user);
 				} else if(http.status == 403) {
 					// login was denied
 					loginFailed();
@@ -89,5 +89,16 @@
 			}
 		});
 	}
+	
+	
+	function setUserProfile(state, user) {
+		if(!state) {
+			// we have logged out, exit here
+			return;
+		}
+		
+		document.getElementById("usernameField").innerHTML = user.username;
+	}
+	mixapp.login.registerLoginStateChangeFunction(setUserProfile); // register this function so it is called on log in/out
 	
 }(window.mixapp = window.mixapp || {}));

@@ -3,7 +3,7 @@
 	
 	<div id="loginDiv" style="display: {% if user.is_active %}none;{% else %}block;{% endif %}">
 		<form id="loginForm" onsubmit="mixapp.login.submitLoginForm()" action="javascript:">
-			<h2>Login</h2>
+			<h2>LOGIN</h2>
 			{% csrf_token %}
 			<input name="username" type="text" placeholder="Username"/> <br/>
 			<input name="password" type="password" placeholder="Password"/> <br/>
@@ -17,6 +17,7 @@
 	</div>
 	
 	<div id="profileDiv" style="display: {% if user.is_active %}block;{% else %}none;{% endif %}">
+		<h2 id="usernameField">{{ user.username }}</h2>
 		Profile div <br/>
 		<a href="javascript:" onclick="mixapp.login.logout()">Logout</a>
 	</div>
